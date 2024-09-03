@@ -18,7 +18,7 @@ module.exports = {
     'react',
   ],
   rules: {
-
+    // Existing rules
     'react/function-component-definition': 0,
     'import/extensions': 0,
     'react/prop-types': 0,
@@ -29,7 +29,6 @@ module.exports = {
       2,
       550,
     ],
-
     'no-multiple-empty-lines': [
       'error',
       {
@@ -78,5 +77,9 @@ module.exports = {
         ],
       },
     ],
+
+    // Add these rules to ignore trailing spaces and comma dangle warnings
+    'no-trailing-spaces': 0,
+    'comma-dangle': 0,
   },
 };

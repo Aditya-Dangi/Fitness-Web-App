@@ -51,7 +51,7 @@ const HeroBanner = () => (
           '&:hover': { 
             background: '#e32c2c', 
             transform: 'scale(1.05)' 
-          }
+          },
         }}
       >
         Explore Exercises
@@ -77,7 +77,7 @@ const HeroBanner = () => (
       className="hero-banner-img" 
       style={{ 
         transition: 'transform 0.3s ease-in-out', 
-        '&:hover': { transform: 'scale(1.03)' } 
+        '&:hover': { transform: 'scale(1.03)' },
       }} 
     />
   </Box>
