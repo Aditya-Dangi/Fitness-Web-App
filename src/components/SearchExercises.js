@@ -13,9 +13,6 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       try {
         const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
 
-        // Log the data to check its structure
-        console.log('bodyPartsData:', bodyPartsData);
-
         // Ensure bodyPartsData is an array
         if (!Array.isArray(bodyPartsData)) {
           console.error('Expected bodyPartsData to be an array:', bodyPartsData);
