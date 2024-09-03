@@ -22,13 +22,11 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         }
 
         if (!Array.isArray(exercisesData)) {
-          console.error('Expected exercisesData to be an array:', exercisesData);
           exercisesData = []; // Ensure exercisesData is an empty array if it's not valid
         }
 
         setExercises(exercisesData);
-      } catch (error) {
-        console.error('Error fetching exercises data:', error);
+      } catch {
         setExercises([]); // Ensure exercises is set to an empty array on error
       }
     };

@@ -13,16 +13,17 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       try {
         const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
 
+        // Remove or comment out the console log statements
+        // console.log('bodyPartsData:', bodyPartsData);
+
         // Ensure bodyPartsData is an array
         if (!Array.isArray(bodyPartsData)) {
-          console.error('Expected bodyPartsData to be an array:', bodyPartsData);
           setBodyParts([]); // Fallback to empty array if data is not valid
           return;
         }
 
         setBodyParts(['all', ...bodyPartsData]);
-      } catch (error) {
-        console.error('Error fetching body parts data:', error);
+      } catch {
         setBodyParts([]); // Fallback to empty array on error
       }
     };
@@ -35,12 +36,11 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       try {
         const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
 
-        // Log the data to check its structure
-        console.log('exercisesData:', exercisesData);
+        // Remove or comment out the console log statements
+        // console.log('exercisesData:', exercisesData);
 
         // Ensure exercisesData is an array
         if (!Array.isArray(exercisesData)) {
-          console.error('Expected exercisesData to be an array:', exercisesData);
           setExercises([]); // Fallback to empty array if data is not valid
           return;
         }
@@ -56,8 +56,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
         setSearch('');
         setExercises(searchedExercises);
-      } catch (error) {
-        console.error('Error fetching exercises data:', error);
+      } catch {
         setExercises([]); // Fallback to empty array on error
       }
     }
