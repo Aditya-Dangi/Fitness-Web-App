@@ -1,0 +1,21 @@
+.footer {
+  background: var(--footer-bg);
+  padding: 40px;
+  text-align: center;
+  margin-top: 80px;
+  transition: background 0.3s ease;
+
+  .footer-brand {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ff2625;
+    letter-spacing: 6px;
+    margin: 0 0 10px;
+  }
+
+  .footer-copy {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+}

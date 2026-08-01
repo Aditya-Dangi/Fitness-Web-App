@@ -1,0 +1,47 @@
+.similar-section {
+  padding: 0 20px 60px;
+
+  .similar-block {
+    margin-bottom: 80px;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 4vw, 44px);
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 32px;
+
+    .accent {
+      color: #ff2625;
+      text-transform: capitalize;
+    }
+  }
+
+  .horizontal-scroll {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 16px 4px 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #ff2625;
+      border-radius: 3px;
+    }
+
+    app-exercise-card {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+    }
+  }
+}

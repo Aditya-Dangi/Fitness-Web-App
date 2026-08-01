@@ -1,0 +1,21 @@
+<div class="exercise-detail-page">
+  <!-- Loading -->
+  <app-loader *ngIf="loading"></app-loader>
+
+  <!-- Error -->
+  <div class="error-state" *ngIf="!loading && error">
+    <mat-icon>error_outline</mat-icon>
+    <p>{{ error }}</p>
+    <a routerLink="/" mat-raised-button color="warn">Back to Home</a>
+  </div>
+
+  <!-- Content -->
+  <ng-container *ngIf="!loading && !error && exercise">
+    <app-detail-info [exercise]="exercise"></app-detail-info>
+    <app-exercise-videos [videos]="videos" [exerciseName]="exercise.name"></app-exercise-videos>
+    <app-similar-exercises
+      [targetExercises]="targetExercises"
+      [equipmentExercises]="equipmentExercises"
+    ></app-similar-exercises>
+  </ng-container>
+</div>

@@ -1,0 +1,37 @@
+<section class="similar-section">
+  <!-- Target muscle exercises -->
+  <div class="similar-block">
+    <h2 class="section-title">
+      Similar <span class="accent">Target Muscle</span> Exercises
+    </h2>
+    <ng-container *ngIf="targetExercises.length > 0; else loadingTarget">
+      <div class="horizontal-scroll">
+        <app-exercise-card
+          *ngFor="let exercise of targetExercises.slice(0, 10)"
+          [exercise]="exercise"
+        ></app-exercise-card>
+      </div>
+    </ng-container>
+    <ng-template #loadingTarget>
+      <app-loader></app-loader>
+    </ng-template>
+  </div>
+
+  <!-- Equipment exercises -->
+  <div class="similar-block">
+    <h2 class="section-title">
+      Similar <span class="accent">Equipment</span> Exercises
+    </h2>
+    <ng-container *ngIf="equipmentExercises.length > 0; else loadingEquipment">
+      <div class="horizontal-scroll">
+        <app-exercise-card
+          *ngFor="let exercise of equipmentExercises.slice(0, 10)"
+          [exercise]="exercise"
+        ></app-exercise-card>
+      </div>
+    </ng-container>
+    <ng-template #loadingEquipment>
+      <app-loader></app-loader>
+    </ng-template>
+  </div>
+</section>

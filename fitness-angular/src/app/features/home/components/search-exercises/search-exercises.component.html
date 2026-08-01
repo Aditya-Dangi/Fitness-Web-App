@@ -1,0 +1,32 @@
+<section class="search-section">
+  <h2 class="section-title">
+    Awesome Exercises You <br /> Should Know
+  </h2>
+
+  <div class="search-bar">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search Exercises</mat-label>
+      <mat-icon matPrefix>search</mat-icon>
+      <input
+        matInput
+        [formControl]="searchControl"
+        (keydown)="onKeyDown($event)"
+        placeholder="e.g. push up, chest, barbell"
+        type="search"
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <button mat-raised-button color="warn" class="search-btn" (click)="search()">
+      Search
+    </button>
+  </div>
+
+  <div class="body-parts-scroll" *ngIf="(exerciseService.bodyParts$ | async)?.length">
+    <app-body-part-card
+      *ngFor="let part of (exerciseService.bodyParts$ | async)"
+      [bodyPart]="part"
+      [selected]="(exerciseService.selectedBodyPart$ | async) === part"
+      (bodyPartSelected)="selectBodyPart($event)"
+    ></app-body-part-card>
+  </div>
+</section>

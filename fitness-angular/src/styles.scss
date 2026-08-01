@@ -1,0 +1,104 @@
+// --- Angular Material Theme --------------------------------------------------
+@use '@angular/material' as mat;
+@include mat.core();
+
+$app-primary: mat.define-palette(mat.$red-palette, 600);
+$app-accent:  mat.define-palette(mat.$orange-palette, 400);
+$app-warn:    mat.define-palette(mat.$red-palette);
+
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $app-primary,
+    accent:  $app-accent,
+    warn:    $app-warn,
+  ),
+  typography: mat.define-typography-config(
+    $font-family: 'Inter, sans-serif',
+  ),
+  density: 0,
+));
+
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $app-primary,
+    accent:  $app-accent,
+    warn:    $app-warn,
+  ),
+));
+
+@include mat.all-component-themes($light-theme);
+
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
+}
+
+// --- Google Fonts -------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Alegreya:wght@400;700&display=swap');
+
+// --- CSS Custom Properties ----------------------------------------------------
+:root {
+  --primary:           #ff2625;
+  --text-color:        #1a1a1a;
+  --text-secondary:    #666;
+  --surface-color:     #ffffff;
+  --card-bg:           #ffffff;
+  --footer-bg:         #fff3f4;
+  --border-color:      #e0e0e0;
+  --selected-card-bg:  #fff5f5;
+}
+
+.dark-theme {
+  --text-color:        #f0f0f0;
+  --text-secondary:    #aaa;
+  --surface-color:     #1e1e2e;
+  --card-bg:           #252535;
+  --footer-bg:         #15151f;
+  --border-color:      #3a3a4a;
+  --selected-card-bg:  #2d1a1a;
+}
+
+// --- Base reset ---------------------------------------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--surface-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+// --- Global scrollbar ---------------------------------------------------------
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff2625;
+  border-radius: 4px;
+}
+
+// --- Angular Material overrides -----------------------------------------------
+.mat-mdc-paginator {
+  background: transparent !important;
+  color: var(--text-color) !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}

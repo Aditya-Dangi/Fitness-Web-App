@@ -1,0 +1,9 @@
+<button
+  class="body-part-card"
+  [class.selected]="selected"
+  (click)="select()"
+  type="button"
+>
+  <img src="assets/icons/gym.png" alt="gym dumbbell" class="icon" />
+  <span class="label">{{ bodyPart }}</span>
+</button>

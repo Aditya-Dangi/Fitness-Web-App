@@ -1,0 +1,30 @@
+<section class="videos-section" *ngIf="displayVideos.length > 0">
+  <h2 class="section-title">
+    Watch
+    <span class="accent capitalize">{{ exerciseName }}</span>
+    exercise videos
+  </h2>
+
+  <div class="videos-grid">
+    <a
+      *ngFor="let item of displayVideos"
+      [href]="'https://www.youtube.com/watch?v=' + item.video.videoId"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="video-card"
+    >
+      <img
+        [src]="item.video.thumbnails[0].url"
+        [alt]="item.video.title"
+        class="thumbnail"
+      />
+      <div class="video-info">
+        <h3 class="video-title">{{ item.video.title }}</h3>
+        <p class="channel-name">
+          <mat-icon class="yt-icon">play_circle</mat-icon>
+          {{ item.video.channelName }}
+        </p>
+      </div>
+    </a>
+  </div>
+</section>

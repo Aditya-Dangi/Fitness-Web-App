@@ -1,0 +1,30 @@
+<section class="detail-info">
+  <div class="gif-wrapper">
+    <img
+      [src]="exercise.gifUrl"
+      [alt]="exercise.name"
+      class="exercise-gif"
+      #gifEl
+      (error)="gifEl.src='assets/icons/gym.png'"
+    />
+  </div>
+
+  <div class="info-content">
+    <h1 class="exercise-name">{{ exercise.name }}</h1>
+    <p class="exercise-description">
+      Exercises keep you strong.
+      <span class="capitalize">{{ exercise.name }}</span> is one of the best
+      exercises to target your <strong>{{ exercise.target }}</strong>.
+      It will help you improve your mood and gain energy.
+    </p>
+
+    <div class="detail-chips">
+      <div class="chip" *ngFor="let detail of details">
+        <div class="chip-icon-wrap">
+          <img [src]="detail.icon" [alt]="detail.label" />
+        </div>
+        <span class="chip-value">{{ detail.value }}</span>
+      </div>
+    </div>
+  </div>
+</section>

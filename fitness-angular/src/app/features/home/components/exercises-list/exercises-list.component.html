@@ -1,0 +1,49 @@
+<section id="exercises" class="exercises-section">
+  <!-- Loading State -->
+  <ng-container *ngIf="exerciseService.loading$ | async">
+    <app-loader></app-loader>
+  </ng-container>
+
+  <!-- Error State -->
+  <ng-container *ngIf="!(exerciseService.loading$ | async) && (exerciseService.error$ | async) as error">
+    <div class="state-container error-state">
+      <mat-icon>error_outline</mat-icon>
+      <p>{{ error }}</p>
+    </div>
+  </ng-container>
+
+  <!-- Exercises Grid -->
+  <ng-container *ngIf="!(exerciseService.loading$ | async) && !(exerciseService.error$ | async)">
+    <ng-container *ngIf="exerciseService.exercises$ | async as exercises">
+      <ng-container *ngIf="exercises.length > 0; else emptyState">
+        <h2 class="section-title">Showing Results</h2>
+
+        <div class="exercises-grid">
+          <app-exercise-card
+            *ngFor="let exercise of getPagedExercises(exercises)"
+            [exercise]="exercise"
+          ></app-exercise-card>
+        </div>
+
+        <div class="paginator-wrap" *ngIf="exercises.length > pageSize">
+          <mat-paginator
+            [length]="exercises.length"
+            [pageSize]="pageSize"
+            [pageIndex]="pageIndex"
+            [pageSizeOptions]="[6, 9, 12]"
+            (page)="onPageChange($event)"
+            showFirstLastButtons
+            aria-label="Select page of exercises"
+          ></mat-paginator>
+        </div>
+      </ng-container>
+
+      <ng-template #emptyState>
+        <div class="state-container empty-state">
+          <mat-icon>fitness_center</mat-icon>
+          <p>No exercises found. Try a different search or category.</p>
+        </div>
+      </ng-template>
+    </ng-container>
+  </ng-container>
+</section>

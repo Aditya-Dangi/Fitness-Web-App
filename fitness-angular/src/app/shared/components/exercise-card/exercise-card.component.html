@@ -1,0 +1,16 @@
+<a class="exercise-card" [routerLink]="['/exercise', exercise.id]">
+  <img
+    [src]="exercise.gifUrl"
+    [alt]="exercise.name"
+    class="exercise-img"
+    #imgEl
+    (error)="imgEl.src='assets/icons/gym.png'"
+  />
+  <div class="card-body">
+    <div class="tags">
+      <span class="tag body-part">{{ exercise.bodyPart }}</span>
+      <span class="tag target">{{ exercise.target }}</span>
+    </div>
+    <h3 class="exercise-name">{{ exercise.name }}</h3>
+  </div>
+</a>

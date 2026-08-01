@@ -1,0 +1,56 @@
+.exercises-section {
+  padding: 20px 20px 60px;
+
+  .section-title {
+    font-size: clamp(26px, 4vw, 44px);
+    font-weight: 700;
+    margin: 0 0 44px;
+    color: var(--text-color);
+  }
+
+  .exercises-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .paginator-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+
+    mat-paginator {
+      background: transparent;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  .state-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    gap: 18px;
+    color: var(--text-secondary);
+
+    mat-icon {
+      font-size: 64px;
+      width: 64px;
+      height: 64px;
+      opacity: 0.35;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0;
+      text-align: center;
+    }
+
+    &.error-state mat-icon {
+      color: #ff2625;
+      opacity: 0.7;
+    }
+  }
+}
