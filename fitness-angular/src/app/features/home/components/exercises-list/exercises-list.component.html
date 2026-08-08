@@ -6,8 +6,8 @@
 
   <!-- Error State -->
   <ng-container *ngIf="!(exerciseService.loading$ | async) && (exerciseService.error$ | async) as error">
-    <div class="state-container error-state">
-      <mat-icon>error_outline</mat-icon>
+    <div class="state-container error-state" role="alert">
+      <mat-icon aria-hidden="true">error_outline</mat-icon>
       <p>{{ error }}</p>
     </div>
   </ng-container>
@@ -40,7 +40,7 @@
 
       <ng-template #emptyState>
         <div class="state-container empty-state">
-          <mat-icon>fitness_center</mat-icon>
+          <mat-icon aria-hidden="true">fitness_center</mat-icon>
           <p>No exercises found. Try a different search or category.</p>
         </div>
       </ng-template>

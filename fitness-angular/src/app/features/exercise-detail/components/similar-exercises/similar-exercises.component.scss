@@ -12,7 +12,7 @@
     margin: 0 0 32px;
 
     .accent {
-      color: #ff2625;
+      color: var(--primary);
       text-transform: capitalize;
     }
   }
@@ -35,7 +35,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background: #ff2625;
+      background: var(--primary);
       border-radius: 3px;
     }
 

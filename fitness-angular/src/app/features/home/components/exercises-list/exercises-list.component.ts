@@ -1,12 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ExerciseService } from '../../../../core/services/exercise.service';
 import { Exercise } from '../../../../core/models/exercise.model';
+import { LoaderComponent } from '../../../../shared/components/loader/loader.component';
+import { ExerciseCardComponent } from '../../../../shared/components/exercise-card/exercise-card.component';
 
 @Component({
   selector: 'app-exercises-list',
+  standalone: true,
+  imports: [NgIf, NgFor, AsyncPipe, MatIconModule, MatPaginatorModule, LoaderComponent, ExerciseCardComponent],
   templateUrl: './exercises-list.component.html',
   styleUrls: ['./exercises-list.component.scss'],
 })

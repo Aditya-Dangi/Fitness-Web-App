@@ -5,16 +5,17 @@
 .exercise-card {
   display: block;
   text-decoration: none;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--card-bg);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
   width: 280px;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     transform: translateY(-6px);
-    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+    box-shadow: var(--shadow-lg);
   }
 
   .exercise-img {
@@ -36,7 +37,7 @@
 
     .tag {
       padding: 4px 14px;
-      border-radius: 20px;
+      border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 600;
       text-transform: capitalize;
@@ -47,7 +48,7 @@
       }
 
       &.target {
-        background: #fcc757;
+        background: var(--accent);
         color: #fff;
       }
     }

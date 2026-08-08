@@ -21,7 +21,12 @@
     </button>
   </div>
 
-  <div class="body-parts-scroll" *ngIf="(exerciseService.bodyParts$ | async)?.length">
+  <div
+    class="body-parts-scroll"
+    role="group"
+    aria-label="Filter exercises by body part"
+    *ngIf="(exerciseService.bodyParts$ | async)?.length"
+  >
     <app-body-part-card
       *ngFor="let part of (exerciseService.bodyParts$ | async)"
       [bodyPart]="part"

@@ -9,7 +9,7 @@
     margin: 0 0 40px;
 
     .accent {
-      color: #ff2625;
+      color: var(--primary);
     }
 
     .capitalize {
@@ -26,17 +26,18 @@
   .video-card {
     display: block;
     text-decoration: none;
-    border-radius: 16px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     background: var(--card-bg);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
     width: 340px;
     max-width: 100%;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       transform: translateY(-5px);
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+      box-shadow: var(--shadow-lg);
     }
 
     .thumbnail {
@@ -73,7 +74,7 @@
           font-size: 16px;
           width: 16px;
           height: 16px;
-          color: #ff2625;
+          color: var(--primary);
         }
       }
     }
