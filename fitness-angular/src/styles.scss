@@ -37,7 +37,10 @@ $dark-theme: mat.define-dark-theme((
 
 // --- CSS Custom Properties ----------------------------------------------------
 :root {
+  // Brand & surfaces
   --primary:           #ff2625;
+  --primary-hover:     #d41a1a;
+  --accent:            #fcc757;
   --text-color:        #1a1a1a;
   --text-secondary:    #666;
   --surface-color:     #ffffff;
@@ -45,6 +48,34 @@ $dark-theme: mat.define-dark-theme((
   --footer-bg:         #fff3f4;
   --border-color:      #e0e0e0;
   --selected-card-bg:  #fff5f5;
+  --chip-bg:           #fff2db;
+
+  // Spacing scale
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  // Radii
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  // Elevation
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 14px 36px rgba(0, 0, 0, 0.18);
+
+  // Motion & layout
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.25s ease;
+  --container-max: 1488px;
+  --focus-ring: 0 0 0 3px rgba(255, 38, 37, 0.35);
 }
 
 .dark-theme {
@@ -55,6 +86,11 @@ $dark-theme: mat.define-dark-theme((
   --footer-bg:         #15151f;
   --border-color:      #3a3a4a;
   --selected-card-bg:  #2d1a1a;
+  --chip-bg:           #3a2f1a;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 14px 36px rgba(0, 0, 0, 0.4);
 }
 
 // --- Base reset ---------------------------------------------------------------
@@ -77,6 +113,44 @@ body {
   color: var(--text-color);
   transition: background 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
+}
+
+// --- Accessibility: visible keyboard focus -------------------------------------
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+// --- Skip link (screen-reader / keyboard users) --------------------------------
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 12px;
+  z-index: 2000;
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 700;
+  transition: top var(--transition-fast);
+
+  &:focus {
+    top: 12px;
+  }
+}
+
+// --- Respect reduced-motion preference -----------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 // --- Global scrollbar ---------------------------------------------------------

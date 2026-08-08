@@ -1,9 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { ExerciseService } from '../../../../core/services/exercise.service';
+import { BodyPartCardComponent } from '../../../../shared/components/body-part-card/body-part-card.component';
 
 @Component({
   selector: 'app-search-exercises',
+  standalone: true,
+  imports: [
+    NgIf,
+    NgFor,
+    AsyncPipe,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    BodyPartCardComponent,
+  ],
   templateUrl: './search-exercises.component.html',
   styleUrls: ['./search-exercises.component.scss'],
 })

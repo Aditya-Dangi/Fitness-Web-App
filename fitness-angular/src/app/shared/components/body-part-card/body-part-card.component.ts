@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-body-part-card',
+  standalone: true,
+  imports: [],
   templateUrl: './body-part-card.component.html',
   styleUrls: ['./body-part-card.component.scss'],
 })

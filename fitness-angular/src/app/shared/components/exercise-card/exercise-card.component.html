@@ -3,6 +3,8 @@
     [src]="exercise.gifUrl"
     [alt]="exercise.name"
     class="exercise-img"
+    loading="lazy"
+    decoding="async"
     #imgEl
     (error)="imgEl.src='assets/icons/gym.png'"
   />

@@ -8,9 +8,13 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  padding: 0 32px;
-  transition: background 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  padding: 0 var(--space-6);
+  transition: background var(--transition-base);
+
+  @media (max-width: 640px) {
+    padding: 0 var(--space-4);
+  }
 
   .logo-link {
     display: flex;
@@ -22,13 +26,13 @@
       width: 44px;
       height: 44px;
       object-fit: contain;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
     }
 
     .brand-name {
       font-size: 22px;
       font-weight: 800;
-      color: #ff2625;
+      color: var(--primary);
       letter-spacing: 1px;
     }
   }
@@ -39,6 +43,7 @@
 
   .nav-links {
     display: flex;
+    align-items: center;
     gap: 36px;
     margin-right: 28px;
 
@@ -49,7 +54,7 @@
       text-decoration: none;
       color: var(--text-color);
       position: relative;
-      transition: color 0.2s;
+      transition: color var(--transition-fast);
 
       &::after {
         content: '';
@@ -58,14 +63,14 @@
         left: 0;
         width: 0;
         height: 3px;
-        background: #ff2625;
+        background: var(--primary);
         border-radius: 2px;
-        transition: width 0.25s ease;
+        transition: width var(--transition-base);
       }
 
       &:hover,
       &.active {
-        color: #ff2625;
+        color: var(--primary);
 
         &::after {
           width: 100%;
@@ -84,6 +89,69 @@
       font-size: 20px;
       width: 20px;
       height: 20px;
+    }
+  }
+
+  .desktop-only {
+    display: flex;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  // --- Mobile: hamburger + slide-down drawer ------------------------------------
+  @media (max-width: 768px) {
+    .desktop-only {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+      color: var(--text-color);
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-5);
+      margin-right: 0;
+      background: var(--surface-color);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      padding: var(--space-5) var(--space-4) var(--space-6);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: max-height var(--transition-base), opacity var(--transition-base),
+        transform var(--transition-base), visibility 0s linear var(--transition-base);
+
+      &.open {
+        max-height: 320px;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: max-height var(--transition-base), opacity var(--transition-base),
+          transform var(--transition-base), visibility 0s;
+      }
+
+      .nav-link {
+        font-size: 20px;
+      }
+
+      .mobile-only {
+        display: flex;
+      }
     }
   }
 }

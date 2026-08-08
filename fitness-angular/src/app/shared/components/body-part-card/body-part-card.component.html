@@ -1,9 +1,10 @@
 <button
   class="body-part-card"
   [class.selected]="selected"
+  [attr.aria-pressed]="selected"
   (click)="select()"
   type="button"
 >
-  <img src="assets/icons/gym.png" alt="gym dumbbell" class="icon" />
+  <img src="assets/icons/gym.png" alt="" class="icon" loading="lazy" decoding="async" />
   <span class="label">{{ bodyPart }}</span>
 </button>

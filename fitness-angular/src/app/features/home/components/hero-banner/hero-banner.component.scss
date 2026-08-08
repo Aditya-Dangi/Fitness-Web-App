@@ -18,7 +18,7 @@
   }
 
   .hero-subtitle {
-    color: #ff2625;
+    color: var(--primary);
     font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
@@ -44,20 +44,21 @@
 
   .hero-cta {
     display: inline-block;
-    background: #ff2625;
+    background: var(--primary);
     color: #fff !important;
     padding: 18px 40px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     text-decoration: none;
     font-size: 17px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
     box-shadow: 0 4px 16px rgba(255, 38, 37, 0.35);
 
-    &:hover {
-      background: #d41a1a;
+    &:hover,
+    &:focus-visible {
+      background: var(--primary-hover);
       transform: translateY(-3px);
       box-shadow: 0 8px 24px rgba(255, 38, 37, 0.45);
     }
@@ -69,7 +70,7 @@
     bottom: -20px;
     font-size: clamp(80px, 15vw, 240px);
     font-weight: 800;
-    color: #ff2625;
+    color: var(--primary);
     opacity: 0.05;
     user-select: none;
     pointer-events: none;

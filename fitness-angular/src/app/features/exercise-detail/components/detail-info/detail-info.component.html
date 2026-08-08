@@ -4,6 +4,7 @@
       [src]="exercise.gifUrl"
       [alt]="exercise.name"
       class="exercise-gif"
+      fetchpriority="high"
       #gifEl
       (error)="gifEl.src='assets/icons/gym.png'"
     />
@@ -21,7 +22,7 @@
     <div class="detail-chips">
       <div class="chip" *ngFor="let detail of details">
         <div class="chip-icon-wrap">
-          <img [src]="detail.icon" [alt]="detail.label" />
+          <img [src]="detail.icon" [alt]="detail.label" loading="lazy" decoding="async" />
         </div>
         <span class="chip-value">{{ detail.value }}</span>
       </div>
