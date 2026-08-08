@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NgFor } from '@angular/common';
 import { Exercise } from '../../../../core/models/exercise.model';
 
 interface ExerciseDetail {
@@ -9,6 +10,8 @@ interface ExerciseDetail {
 
 @Component({
   selector: 'app-detail-info',
+  standalone: true,
+  imports: [NgFor],
   templateUrl: './detail-info.component.html',
   styleUrls: ['./detail-info.component.scss'],
 })

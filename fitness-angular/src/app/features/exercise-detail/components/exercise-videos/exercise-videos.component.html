@@ -12,11 +12,14 @@
       target="_blank"
       rel="noopener noreferrer"
       class="video-card"
+      [attr.aria-label]="item.video.title + ' — opens on YouTube in a new tab'"
     >
       <img
         [src]="item.video.thumbnails[0].url"
         [alt]="item.video.title"
         class="thumbnail"
+        loading="lazy"
+        decoding="async"
       />
       <div class="video-info">
         <h3 class="video-title">{{ item.video.title }}</h3>

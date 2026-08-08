@@ -1,12 +1,30 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { Subject, forkJoin } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
 import { ExerciseService } from '../../core/services/exercise.service';
 import { Exercise, VideoItem } from '../../core/models/exercise.model';
+import { LoaderComponent } from '../../shared/components/loader/loader.component';
+import { DetailInfoComponent } from './components/detail-info/detail-info.component';
+import { ExerciseVideosComponent } from './components/exercise-videos/exercise-videos.component';
+import { SimilarExercisesComponent } from './components/similar-exercises/similar-exercises.component';
 
 @Component({
   selector: 'app-exercise-detail',
+  standalone: true,
+  imports: [
+    NgIf,
+    RouterLink,
+    MatIconModule,
+    MatButtonModule,
+    LoaderComponent,
+    DetailInfoComponent,
+    ExerciseVideosComponent,
+    SimilarExercisesComponent,
+  ],
   templateUrl: './exercise-detail.component.html',
   styleUrls: ['./exercise-detail.component.scss'],
 })

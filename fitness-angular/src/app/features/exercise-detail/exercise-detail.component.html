@@ -3,8 +3,8 @@
   <app-loader *ngIf="loading"></app-loader>
 
   <!-- Error -->
-  <div class="error-state" *ngIf="!loading && error">
-    <mat-icon>error_outline</mat-icon>
+  <div class="error-state" role="alert" *ngIf="!loading && error">
+    <mat-icon aria-hidden="true">error_outline</mat-icon>
     <p>{{ error }}</p>
     <a routerLink="/" mat-raised-button color="warn">Back to Home</a>
   </div>
