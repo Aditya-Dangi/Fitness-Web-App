@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Local AI-assistant tooling (not part of the project)
+.claude/
